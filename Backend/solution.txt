@@ -1,0 +1,14 @@
+
+pip install -r requirements.txt
+
+pip install pymysql    #creo que nop
+pip install mysql-connector-python   #creo que tampoco ayudó
+pip3 install mysqlclient
+
+pip3 install mysqlclient
+
+
+
+https://stackoverflow.com/questions/53024891/modulenotfounderror-no-module-named-mysqldb # quizas
+https://stackoverflow.com/questions/7475223/mysql-config-not-found-when-installing-mysqldb-python-interface  # para mysqlclient
+https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04-es  #  instalar mysql en linux 

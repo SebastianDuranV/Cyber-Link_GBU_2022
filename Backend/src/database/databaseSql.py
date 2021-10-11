@@ -1,20 +1,5 @@
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-
-app = Flask(__name__)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:password@localhost/Cyber_Link_GBU_2022'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_POOL_RECYCLE'] = 30
-app.config['SQLALCHEMY_POOL_TIMEOUT'] = 40
-
-
-db = SQLAlchemy(app)
-db.create_all()
-
-# Diagrama base de datos - Database diagram ::::::
-# https://docs.google.com/drawings/d/1yPsAwcgLrZl_9ui5iSGcvJf1lK7UsoHk7CYx_2_HPjM/edit?usp=sharing
+db = SQLAlchemy()
 
 class Event(db.Model):
 

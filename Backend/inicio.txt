@@ -1,1 +1,2 @@
-venv\Scripts\activate.bat en cmd
+venv\Scripts\activate.bat en cmd en windows
+source venv/Scripts/activate

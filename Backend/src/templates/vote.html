@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Resultados de votación</h1>
+    <h2 id="results"> Votación en ejecución</h2>
+    <button id="yes" onclick="">Yes</button>
+    <button id="no" onclick="">No</button>
+    <button id="white" onclick="">White</button>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const results = document.getElementById("results");
+      const yes = document.getElementById("yes");
+      const no = document.getElementById("no");
+      const white = document.getElementById("white");
+
+
+      socket.on('statusVote', function(vote){
+        results.innerText = "Yes: " + vote.yes + " No: " + vote.no + " White: " + vote.white
+      })
+
+      yes.addEventListener('click', function () {
+          socket.emit("yes")
+      })
+    
+
+      no.addEventListener('click', function () {
+          socket.emit("no")
+      })
+
+
+      white.addEventListener('click', function () {
+          socket.emit("white")
+        })
+
+
+    </script>
+</body>
+</html>
