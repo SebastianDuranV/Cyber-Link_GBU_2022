@@ -43,7 +43,7 @@ def deleteUser(id):
 # Role ::::::::
 @api.route('/role', methods = ['POST'])
 def createRole():
-    id = request.json['id'] # Number of document
+    #id = request.json['id'] # Number of document
     name = request.json['name']
     role = Role(id=id, name=name)
     db.session.add(role)
@@ -72,7 +72,7 @@ def deleteRole(id):
 # Nationality ::::::::::::
 @api.route('/nationality', methods = ['POST'])
 def createNationality():
-    id = request.json['id'] # Number of document
+    #id = request.json['id'] # Number of document
     name = request.json['name']
     nationality = Nationality(id=id, name=name)
     db.session.add(nationality)
@@ -101,7 +101,7 @@ def deleteNationality(id):
 # LocalGroup :::::::::::
 @api.route('/localGroup', methods = ['POST'])
 def createLocalGroup():
-    id = request.json['id'] # Number of document
+    #id = request.json['id'] # Number of document
     name = request.json['name']
     localGroup = LocalGroup(id=id, name=name)
     db.session.add(localGroup)
@@ -129,7 +129,7 @@ def deleteLocalGroup(id):
 # Event :::::::::::
 @api.route('/event', methods = ['POST'])
 def createEvent():
-    id = request.json['id'] # Number of document
+    #id = request.json['id'] # Number of document
     name = request.json['name']
     details = request.json['details']
     dateStart = request.json['dateStart']
@@ -162,7 +162,7 @@ def deleteEvent(id):
 # Presentation ::::::::::::
 @api.route('/presentation', methods = ['POST'])
 def createPresentation():
-    id = request.json['id'] # Number of document
+    #id = request.json['id'] # Number of document
     name = request.json['name']
     details = request.json['details']
     date = request.json['date']
