@@ -43,7 +43,7 @@ def deleteUser(id):
 # Role ::::::::
 @api.route('/role', methods = ['POST'])
 def createRole():
-    #id = request.json['id'] # Number of document
+    id = request.json['id'] # Number of document
     name = request.json['name']
     role = Role(id=id, name=name)
     db.session.add(role)
