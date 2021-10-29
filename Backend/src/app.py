@@ -15,8 +15,8 @@ def create_app():
     CORS(app)
 
     #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:password@localhost/Cyber_Link_GBU_2022' # for windows
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Password1!@localhost/gbu' # for linux (ubuntu, kubuntu, etc)
-    #app.config['SQLALCHEMY_DATABASE_URI'] = 'home/sebastian/Documentos/Cyber-Link_GBU_2022/Backend/src/gbu.db' # for linux (ubuntu, kubuntu, etc)
+    #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Password1!@localhost/gbu' # for linux (ubuntu, kubuntu, etc)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////gbu.db' # for linux (ubuntu, kubuntu, etc)
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     app.config['SQLALCHEMY_POOL_RECYCLE'] = 30
     app.config['SQLALCHEMY_POOL_TIMEOUT'] = 40
