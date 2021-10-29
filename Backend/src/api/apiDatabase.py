@@ -12,7 +12,7 @@ def createUser():
     lastName = request.json['lastName']
     dateOfBirth = request.json['dateOfBirth']
     email = request.json['email']
-    vegetarian = request.json['vegetarian'], vegetarian = 0
+    vegetarian = request.json['vegetarian']
     phone = request.json['phone']
     emergencyNumber = request.json['emergencyNumber']
     user = User(id=id, names=names , email=email, lastname = lastName,
@@ -34,12 +34,7 @@ def getUsers():
 
 @api.route('/users/<id>', methods = ['GET'])
 def getUser(id):
-    
-    try:
-        user = User.query.filter_by(id=id).first_or_404()
-    except:
-        return "402"
-
+    user = User.query.filter_by(id=id).first_or_404()
     return user_schema.jsonify(user)
 
 @api.route('/users', methods = ['DELETE'])
