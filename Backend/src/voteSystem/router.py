@@ -20,20 +20,26 @@ def test_connect():
     print("Client connect")
 
 @socketio.on('disconnect')
-def test_disconnect():
-    print('Client disconnected')
+def test_disconnect(idUser):
+    vota.desconnect(idUser)
+    print('Client disconnected: %s' % idUser)
 
 @socketio.on('yes')
-def addYes():
-    vota.addYes()
+def addYes(idUser):
+    vota.addYes(idUser)
     emit('statusVote', vota.getStatus(), broadcast=True)
 
 @socketio.on('no')
-def addNo():
-    vota.addNo()
+def addNo(idUser):
+    vota.addNo(idUser)
     emit('statusVote', vota.getStatus(), broadcast=True)
 
 @socketio.on('white')
-def addWhite():
-    vota.addWhite()
+def addWhite(idUser):
+    vota.addWhite(idUser)
     emit('statusVote', vota.getStatus(), broadcast=True)
+
+
+@socketio.on('userConnect')
+def test_connect(idUser):
+    vota.connect(idUser)

@@ -7,19 +7,24 @@ api = Blueprint('api',__name__,url_prefix='/api')
 # USER :::::::::::::::::::::::::::::::::::::::::
 @api.route('/users', methods = ['POST'])
 def createUser():
-    id = request.json['id'] # Number of document
+    id = request.json['id'] # Number of document (rut)
     names = request.json['names']
     lastName = request.json['lastName']
     dateOfBirth = request.json['dateOfBirth']
     email = request.json['email']
-    vegetarian = request.json['vegetarian']
+    vegetarian = request.json['vegetarian'], vegetarian = 0
     phone = request.json['phone']
     emergencyNumber = request.json['emergencyNumber']
     user = User(id=id, names=names , email=email, lastname = lastName,
         vegetarian=vegetarian, # dateOfBirth=dateOfBirth, # falta saber como ingresar una fecha
          phone=phone, emergencyNumber=emergencyNumber)
     db.session.add(user)
-    db.session.commit()
+
+    try:
+        db.session.commit()
+    except:
+        return "Usuario mal enviado, o ya existe"
+    
     return user_schema.jsonify(user)
 
 @api.route('/users', methods = ['GET'])
@@ -29,11 +34,17 @@ def getUsers():
 
 @api.route('/users/<id>', methods = ['GET'])
 def getUser(id):
-    user = User.query.filter_by(id=id).first_or_404()
+    
+    try:
+        user = User.query.filter_by(id=id).first_or_404()
+    except:
+        return "402"
+
     return user_schema.jsonify(user)
 
-@api.route('/users/<id>', methods = ['DELETE'])
-def deleteUser(id):
+@api.route('/users', methods = ['DELETE'])
+def deleteUser():
+    id = request.json['id']
     user = User.query.filter_by(id=id).first_or_404()
     db.session.delete(user)
     db.session.commit()

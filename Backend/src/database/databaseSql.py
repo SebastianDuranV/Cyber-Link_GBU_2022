@@ -16,7 +16,7 @@ class Event(db.Model):
 
 class Presentation(db.Model):
 
-    id = db.Column(db.String(9), primary_key=True, unique=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True, unique=True, autoincrement=True)
     name = db.Column(db.String(80), unique=False, nullable=False)
     details = db.Column(db.Text, nullable=False)
     date = db.Column(db.DateTime, nullable=False)
