@@ -6,8 +6,9 @@ from flask_socketio import SocketIO
 from database.marchmallow import ma
 from flask_cors import CORS, cross_origin
 
-socketio = SocketIO()
+socketio = SocketIO(cors_allowed_origins='*')
 vota = Votation()
+
 
 #def create_app():
 app = Flask(__name__)

@@ -11,6 +11,8 @@ class Votation():
         return "Yes: " + str(len(self.yes)) + " No: " + str(len(self.no)) + " White " + str(len(self.white))
 
     def addYes(self,idUser):
+
+        print("yes")
         if idUser in self.no:
             self.no.remove(idUser)
         
