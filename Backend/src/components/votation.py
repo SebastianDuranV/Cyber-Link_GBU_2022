@@ -11,15 +11,14 @@ class Votation():
         return "Yes: " + str(len(self.yes)) + " No: " + str(len(self.no)) + " White " + str(len(self.white))
 
     def addYes(self,idUser):
-
-        print("yes")
         if idUser in self.no:
             self.no.remove(idUser)
         
         if idUser in self.white:
             self.white.remove(idUser)
 
-        self.yes.append(idUser)
+        if not idUser in self.yes:
+            self.yes.append(idUser)
 
     def addNo(self,idUser):
 
@@ -29,7 +28,8 @@ class Votation():
         if idUser in self.white:
             self.white.remove(idUser)
 
-        self.no.append(idUser)
+        if not idUser in self.no:
+            self.no.append(idUser)
 
         
 
@@ -40,7 +40,8 @@ class Votation():
         if idUser in self.yes:
             self.yes.remove(idUser)
 
-        self.white.append(idUser)
+        if not idUser in self.white:
+            self.white.append(idUser)
 
     def getStatus(self):
         conect = set(self.connected)
@@ -51,3 +52,9 @@ class Votation():
 
     def desconnect(self,idUser):
         self.connected.remove(idUser)
+
+    def deleteVotar(self):
+        self.yes = []
+        self.no = []
+        self.white = []
+        

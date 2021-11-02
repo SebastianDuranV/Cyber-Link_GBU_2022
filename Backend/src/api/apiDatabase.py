@@ -4,6 +4,16 @@ from database.databaseSql import db, User, Role, Event, Presentation, Nationalit
 
 api = Blueprint('api',__name__,url_prefix='/api')
 
+
+@api.route('/deleteAllDataBase', methods=['DELETE'])
+def deleteAllDataBase():
+    users = User.query.all()
+    for user in users: 
+        db.session.delete(user)
+    db.session.commit()
+    return "Base de datos eliminado"
+
+
 # USER :::::::::::::::::::::::::::::::::::::::::
 @api.route('/users', methods = ['POST'])
 def createUser():

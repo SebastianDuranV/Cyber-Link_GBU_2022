@@ -10,3 +10,6 @@ simplejson==3.17.2
 SQLAlchemy==1.4.23
 urllib3==1.26.2
 gunicorn==20.1.0
+eventlet==0.30.2
+gevent==21.8.0
+gevent-websocket==0.10.1
